@@ -18,7 +18,35 @@
         <property name="value1" value="1"/>
         <property name="value2" value="2"/>
     </bean>
-    <bean id="zad3" class="Zad3" init-method="init" destroy-method="destroy">
+    <bean id="zad3" class="Zad3" init-method="init" destroy-method="destroy" lazy-init="true">
         <property name="message" value="My message"/>
     </bean>
+
+    <bean id = "zad4AbstractBean" abstract = "true">
+        <property name = "one" value = "I am one"/>
+        <property name = "two" value = "I am two"/>
+        <property name = "three" value = "I am three"/>
+    </bean>
+
+    <bean id="zad4Bean" class="Zad4Bean" parent="zad4AbstractBean">
+        <property name="one" value="Woohoa!"/>
+        <property name="three" value="Yeah oh good!"/>
+    </bean>
+
+    <bean id="computer" class="Computer">
+        <property name="ram">
+            <bean id="ram" class="Ram">
+                <property name="value" value="128"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="car" class="Car">
+        <constructor-arg index="0" ref="engine"/>
+    </bean>
+
+    <bean id="engine" class="Engine">
+
+    </bean>
+
 </beans>
