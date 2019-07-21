@@ -4,4 +4,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init"
        default-destroy-method="destroy">
+
+    <bean id="helloWorld" class="HelloWorld" scope="prototype">
+        <property name="message" value="ABC!"/>
+        <property name="message2" value="ABC2!"/>
+    </bean>
+
+    <bean id="zad1" class="Zad1" scope="prototype">
+        <property name="value1" value="1"/>
+        <property name="value2" value="2"/>
+    </bean>
+    <bean id="zad2" class="Zad2" scope="singleton">
+        <property name="value1" value="1"/>
+        <property name="value2" value="2"/>
+    </bean>
+    <bean id="zad3" class="Zad3" init-method="init" destroy-method="destroy">
+        <property name="message" value="My message"/>
+    </bean>
 </beans>
